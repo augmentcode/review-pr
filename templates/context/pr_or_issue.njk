@@ -1,0 +1,11 @@
+<<CONTEXT>>
+    <<TITLE>>{{ pr.title }}<</TITLE>>
+    <<AUTHOR>>{{ pr.author }}<</AUTHOR>>
+    <<STATE>>{{ pr.state }}<</STATE>>
+    {% if pr.body %}
+    <<BODY>>
+        {{ pr.body }}
+    <</BODY>>
+    {% endif %}
+    {% include 'context/pr_details.njk' %}
+<</CONTEXT>>

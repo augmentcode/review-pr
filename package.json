@@ -1,0 +1,52 @@
+{
+  "name": "augment-review-pr",
+  "version": "0.1.0",
+  "description": "AI-powered code assistance for reviewing pull requests using Augment's intelligent development tools",
+  "main": "action.yml",
+  "type": "module",
+  "scripts": {
+    "test": "bun test",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "format:staged": "prettier --write --cache --ignore-unknown",
+    "lint": "prettier --check .",
+    "lint:fix": "prettier --write .",
+    "version:patch": "npm version patch && git push && git push --tags",
+    "version:minor": "npm version minor && git push && git push --tags",
+    "version:major": "npm version major && git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/augmentcode/review-pr.git"
+  },
+  "keywords": [
+    "github-action",
+    "ai",
+    "code-review",
+    "pull-request",
+    "automation",
+    "augment",
+    "developer-tools",
+    "ci-cd"
+  ],
+  "author": "Augment Code",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/augmentcode/review-pr/issues"
+  },
+  "homepage": "https://github.com/augmentcode/review-pr#readme",
+  "engines": {
+    "node": ">=22.0.0",
+    "bun": ">=1.0.0"
+  },
+  "files": [
+    "action.yml",
+    "README.md",
+    "LICENSE",
+    "templates/"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}

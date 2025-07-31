@@ -1,0 +1,52 @@
+name: "Augment Review PR"
+description: "AI-powered PR Reviews"
+author: "Augment Code"
+
+inputs:
+  augment_session_auth:
+    description: "Augment session authentication JSON containing accessToken and tenantURL. Store as repository secret for security."
+    required: true
+  github_token:
+    description: "GitHub token for API access. Must have 'repo' scope."
+    required: true
+  pull_number:
+    description: "The number of the pull request being reviewed"
+    required: true
+  repo_name:
+    description: "The full name (owner/repo) of the repository"
+    required: true
+  custom_guidelines:
+    description: "Optional custom guidelines to include in the PR review process. These will be added to the default guidelines."
+    required: false
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout PR Head
+      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      with:
+        token: ${{ inputs.github_token }}
+        ref: refs/pull/${{ inputs.pull_number }}/head
+        fetch-depth: 0
+
+    - name: Prepare Custom Context
+      id: custom_context
+      shell: bash
+      run: |
+        if [ -n "$CUSTOM_GUIDELINES" ]; then
+          echo "context=$(jq -n --arg guidelines "$CUSTOM_GUIDELINES" '{custom_guidelines: $guidelines}')" >> $GITHUB_OUTPUT
+        else
+          echo "context={}" >> $GITHUB_OUTPUT
+        fi
+      env:
+        CUSTOM_GUIDELINES: ${{ inputs.custom_guidelines }}
+
+    - name: Run Augment Agent
+      uses: augmentcode/augment-agent@6f08f56902d6728a0ffbbb2004c136c06fec8104 # v0.1.0
+      with:
+        augment_session_auth: ${{ inputs.augment_session_auth }}
+        github_token: ${{ inputs.github_token }}
+        template_directory: "${{ github.action_path }}/templates"
+        pull_number: ${{ inputs.pull_number }}
+        repo_name: ${{ inputs.repo_name }}
+        custom_context: ${{ steps.custom_context.outputs.context }}

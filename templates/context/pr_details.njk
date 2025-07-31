@@ -1,0 +1,8 @@
+<<HEAD_REF>>{{ pr.head.ref }}<</HEAD_REF>>
+<<BASE_REF>>{{ pr.base.ref }}<</BASE_REF>>
+<<CHANGED_FILES>>
+    {{ pr.changed_files }}
+<</CHANGED_FILES>>
+<<DIFF>>
+    {{ pr.diff_file | maybe_read_file }}
+<</DIFF>>
