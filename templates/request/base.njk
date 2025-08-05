@@ -28,9 +28,10 @@ You are conducting a comprehensive code review for PR #{{ pr.number }}. You have
 
 ## Action Required:
 - Use GitHub's review system to post your feedback directly on the relevant lines of code in the PR
-- Suggested changes should be used to make it easier to adopt your suggestions
-- **IMPORTANT:** All of your comments should be sent as a single review, not as separate reviews
-- Do not post comments outside of the single review
+- For any code-specific issue, you MUST post an inline review comment anchored to the exact file and line in the PR diff; when proposing code changes, use GitHub suggestion blocks (```suggestion ... ```)
+- The review summary MUST be at most 3 sentences and MUST NOT include code-specific suggestions, code blocks, or file/line references. Do not repeat details from inline comments.
+- Submit a single GitHub review containing your inline comments plus the brief summary. Do not create multiple reviews.
+- If you cannot find a valid diff anchor for a code-specific suggestion, comment on the closest changed line and clearly reference the exact location; only if no anchor is possible, write one short general comment for that item.
 - Never use "REQUEST_CHANGES" or "APPROVE"
 - If no line-specific suggestions, post a general comment like "Review completed. No suggestions at this time."
 - Only a single review should be created, never multiple reviews
