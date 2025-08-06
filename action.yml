@@ -34,7 +34,9 @@ runs:
       shell: bash
       run: |
         if [ -n "$CUSTOM_GUIDELINES" ]; then
-          echo "context=$(jq -n --arg guidelines "$CUSTOM_GUIDELINES" '{custom_guidelines: $guidelines}')" >> $GITHUB_OUTPUT
+          echo 'context<<EOF' >> $GITHUB_OUTPUT
+          echo "$(jq -n --arg guidelines "$CUSTOM_GUIDELINES" '{custom_guidelines: $guidelines}')" >> $GITHUB_OUTPUT
+          echo 'EOF' >> $GITHUB_OUTPUT
         else
           echo "context={}" >> $GITHUB_OUTPUT
         fi
