@@ -1,6 +1,6 @@
 {
   "name": "augment-review-pr",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "AI-powered code assistance for reviewing pull requests using Augment's intelligent development tools",
   "main": "action.yml",
   "type": "module",
