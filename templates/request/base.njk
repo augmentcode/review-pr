@@ -35,6 +35,14 @@ You are conducting a comprehensive code review for PR #{{ pr.number }}. You have
 - Never use "REQUEST_CHANGES" or "APPROVE"
 - If no line-specific suggestions, post a general comment like "Review completed. No suggestions at this time."
 - Only a single review should be created, never multiple reviews
+
+### Precise Anchoring
+- Anchor using line + side; do not use "position".
+- Default: side="RIGHT" for added/modified lines; use "LEFT" only for deleted lines.
+- Validate anchors: only post an inline comment when you can ensure the anchor targets the intended code; otherwise post one brief general comment.
+- Suggestion blocks (```suggestion) only on side="RIGHT"; be especially careful to anchor precisely when providing suggestions.
+- For multi-line ranges, set start_line/start_side and line/side consistently (same side).
+
 **IMPORTANT**: If you post any review comments, end your review summary with this exact feedback request:
 
 ---
