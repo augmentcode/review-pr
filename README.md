@@ -87,7 +87,7 @@ Each example includes a complete workflow file that you can copy to your `.githu
 2. **Data Gathering**: Fetches PR metadata, changed files, and diff content from GitHub API
 3. **Template Rendering**: Uses Nunjucks templates to create a structured instruction for the AI
 4. **AI Processing**: Calls the Augment Agent to analyze the changes and generate a review
-5. **PR Update**: The Augment Agent updates the PR description with the generated review content
+5. **PR Review Submission**: The Augment Agent submits a single GitHub review containing a brief summary and multiple inline comments anchored to specific lines in the PR diff (including suggestion blocks where appropriate)
 
 ## Custom Guidelines
 
