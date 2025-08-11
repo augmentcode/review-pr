@@ -18,6 +18,9 @@ inputs:
   custom_guidelines:
     description: "Optional custom guidelines to include in the PR review process. These will be added to the default guidelines."
     required: false
+  model:
+    description: "Optional model name to use; passed directly to augmentcode/augment-agent."
+    required: false
 
 runs:
   using: "composite"
@@ -44,7 +47,7 @@ runs:
         CUSTOM_GUIDELINES: ${{ inputs.custom_guidelines }}
 
     - name: Run Augment Agent
-      uses: augmentcode/augment-agent@6f08f56902d6728a0ffbbb2004c136c06fec8104 # v0.1.0
+      uses: augmentcode/augment-agent@v0
       with:
         augment_session_auth: ${{ inputs.augment_session_auth }}
         github_token: ${{ inputs.github_token }}
@@ -52,3 +55,4 @@ runs:
         pull_number: ${{ inputs.pull_number }}
         repo_name: ${{ inputs.repo_name }}
         custom_context: ${{ steps.custom_context.outputs.context }}
+        model: ${{ inputs.model }}
