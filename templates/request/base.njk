@@ -28,7 +28,7 @@ You are conducting a comprehensive code review for PR #{{ pr.number }}. You have
 
 ## Action Required:
 - Use GitHub's review system to post your feedback directly on the relevant lines of code in the PR
-- For any code-specific issue, you MUST post an inline review comment anchored to the exact file and line in the PR diff; when proposing code changes, use GitHub suggestion blocks (```suggestion ... ```)
+- For any code-specific issue, post an inline review comment anchored to the exact file and line in the PR diff. When proposing code changes, do NOT use GitHub suggestion blocks. Instead, include regular fenced code blocks with appropriate language tags and use clear sections like "Current code:" and "Suggested improvement:"
 - The review summary MUST be at most 3 sentences and MUST NOT include code-specific suggestions, code blocks, or file/line references. Do not repeat details from inline comments.
 - Submit a single GitHub review containing your inline comments plus the brief summary. Do not create multiple reviews.
 - If you cannot find a valid diff anchor for a code-specific suggestion, comment on the closest changed line and clearly reference the exact location; only if no anchor is possible, write one short general comment for that item.
@@ -40,7 +40,7 @@ You are conducting a comprehensive code review for PR #{{ pr.number }}. You have
 - Anchor using line + side; do not use "position".
 - Default: side="RIGHT" for added/modified lines; use "LEFT" only for deleted lines.
 - Validate anchors: only post an inline comment when you can ensure the anchor targets the intended code; otherwise post one brief general comment.
-- Suggestion blocks (```suggestion ... ``` ) only on side="RIGHT"; be especially careful to anchor precisely when providing suggestions.
+- Do not use GitHub suggestion blocks. Provide code examples with regular fenced code blocks. Be especially careful to anchor precisely to the intended line(s).
 - For multi-line ranges, set start_line/start_side and line/side consistently (same side).
 
 **IMPORTANT**: If you post any review comments, end your review summary with this exact feedback request:
