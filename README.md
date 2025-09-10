@@ -19,7 +19,7 @@ Example session JSON:
 
 There are 2 ways to get the credentials:
 
-- Run `auggie --print-augment-token`
+- Run `auggie tokens print`
   - Copy the JSON after `TOKEN=`
 - Copy the credentials stored in your Augment cache directory, defaulting to `~/.augment/session.json`
 
@@ -28,7 +28,7 @@ There are 2 ways to get the credentials:
 > - Never commit them to version control
 > - Only store them in secure locations (like GitHub secrets)
 > - Don't share them in plain text or expose them in logs
-> - If a token is compromised, immediately revoke it using `auggie --revoke-all-augment-tokens`
+> - If a token is compromised, immediately revoke it using `auggie tokens revoke`
 
 ### 2. Set Up the GitHub Repository Secret
 
