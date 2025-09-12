@@ -1,6 +1,9 @@
 name: "Augment Review PR"
 description: "AI-powered PR Reviews"
 author: "Augment Code"
+branding:
+  icon: "zap"
+  color: "purple""
 
 inputs:
   augment_session_auth:
