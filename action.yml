@@ -24,6 +24,12 @@ inputs:
   model:
     description: "Optional model name to use; passed directly to augmentcode/augment-agent."
     required: false
+  rules:
+    description: "Optional JSON array of rules file paths to forward as --rules flags to augmentcode/augment-agent."
+    required: false
+  mcp_configs:
+    description: "Optional JSON array of MCP config file paths to forward as --mcp-config flags to augmentcode/augment-agent."
+    required: false
 
 runs:
   using: "composite"
@@ -59,3 +65,5 @@ runs:
         repo_name: ${{ inputs.repo_name }}
         custom_context: ${{ steps.custom_context.outputs.context }}
         model: ${{ inputs.model }}
+        rules: ${{ inputs.rules }}
+        mcp_configs: ${{ inputs.mcp_configs }}
