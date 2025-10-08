@@ -83,6 +83,7 @@ Each example includes a complete workflow file that you can copy to your `.githu
 | `model`                | Optional model name to use; passed directly to augment agent                               | No       | e.g. `sonnet4`, from `auggie --list-models`         |
 | `rules`                | JSON array of rule file paths forwarded to augment agent as repeated `--rules` flags       | No       | `'[".augment/rules.md"]'`                           |
 | `mcp_configs`          | JSON array of MCP config file paths forwarded as repeated `--mcp-config` flags             | No       | `'[".augment/mcp.json"]'`                           |
+| `fetch_depth`          | Number of commits to fetch. Use `0` for full history (default), `1` for shallow clone, or any positive integer for specific depth | No       | `1` (shallow), `50` (last 50 commits), `0` (full) |
 
 ## How It Works
 
