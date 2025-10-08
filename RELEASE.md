@@ -8,13 +8,13 @@ Use the built-in npm scripts for easy version bumping:
 
 ```bash
 # For patch releases (bug fixes): 0.1.0 -> 0.1.1
-bun run version:patch
+npm run version:patch
 
 # For minor releases (new features): 0.1.0 -> 0.2.0
-bun run version:minor
+npm run version:minor
 
 # For major releases (breaking changes): 0.1.0 -> 1.0.0
-bun run version:major
+npm run version:major
 ```
 
 These scripts will:
@@ -31,13 +31,13 @@ If you prefer manual control:
 1. **Update the version in package.json:**
 
    ```bash
-   bun version 0.1.1  # or whatever version you want
+   npm version 0.1.1  # or whatever version you want
    ```
 
 2. **Type check the project:**
 
    ```bash
-   bun run typecheck
+   npm run typecheck
    ```
 
 3. **Commit the changes:**
@@ -93,7 +93,7 @@ This allows users to pin to major versions for automatic updates:
 
 **Type check failures:**
 
-- Run `bun run typecheck` locally to check for TypeScript errors
+- Run `npm run typecheck` locally to check for TypeScript errors
 - Ensure all dependencies are properly installed
 
 **Release not created:**

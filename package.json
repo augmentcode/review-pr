@@ -5,7 +5,7 @@
   "main": "action.yml",
   "type": "module",
   "scripts": {
-    "test": "bun test",
+    "test": "node --test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "format:staged": "prettier --write --cache --ignore-unknown",
@@ -36,8 +36,7 @@
   },
   "homepage": "https://github.com/augmentcode/review-pr#readme",
   "engines": {
-    "node": ">=22.0.0",
-    "bun": ">=1.0.0"
+    "node": ">=22.0.0"
   },
   "files": [
     "action.yml",
