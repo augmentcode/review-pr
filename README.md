@@ -80,9 +80,7 @@ Each example includes a complete workflow file that you can copy to your `.githu
 | `pull_number`          | The number of the pull request being reviewed                                              | Yes      | `${{ github.event.pull_request.number }}`           |
 | `repo_name`            | The full name (owner/repo) of the repository                                               | Yes      | `${{ github.repository }}`                          |
 | `custom_guidelines`    | Custom guidelines to include in PR reviews                                                 | No       | See [Custom Guidelines](#custom-guidelines) section |
-| `model`                | Optional model name to use; passed directly to augment agent                               | No       | e.g. `sonnet4`, from `auggie --list-models`         |
-| `rules`                | JSON array of rule file paths forwarded to augment agent as repeated `--rules` flags       | No       | `'[".augment/rules.md"]'`                           |
-| `mcp_configs`          | JSON array of MCP config file paths forwarded as repeated `--mcp-config` flags             | No       | `'[".augment/mcp.json"]'`                           |
+| `model`                | Optional model name to use; passed directly to augment agent                               | No       | e.g. `sonnet4`, from `auggie --list-models` |
 
 ## How It Works
 
