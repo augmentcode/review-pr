@@ -39,7 +39,7 @@ runs:
   using: "composite"
   steps:
     - name: Checkout PR Head
-      uses: actions/checkout@d26b0d41bf4021c914eabfa7ba4dc03269578989 # v4.0.0
+      uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
       with:
         token: ${{ inputs.github_token }}
         ref: refs/pull/${{ inputs.pull_number }}/head
@@ -60,8 +60,7 @@ runs:
         CUSTOM_GUIDELINES: ${{ inputs.custom_guidelines }}
 
     - name: Run Augment Agent
-      # Testing PR #9 commit SHA to verify directory structure compatibility
-      uses: augmentcode/augment-agent@acf657cb99e573ee2ca730b4779e09045e4c8ce5
+      uses: augmentcode/augment-agent@d26b0d41bf4021c914eabfa7ba4dc03269578989
       with:
         augment_session_auth: ${{ inputs.augment_session_auth }}
         github_token: ${{ inputs.github_token }}
