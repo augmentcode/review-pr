@@ -73,17 +73,17 @@ Each example includes a complete workflow file that you can copy to your `.githu
 
 ## Inputs
 
-| Input                  | Description                                                                                | Required | Example                                             |
-| ---------------------- | ------------------------------------------------------------------------------------------ | -------- | --------------------------------------------------- |
-| `augment_session_auth` | Augment session authentication JSON containing accessToken and tenantURL (store as secret) | Yes      | `${{ secrets.AUGMENT_SESSION_AUTH }}`               |
-| `github_token`         | GitHub token with `repo` scopes                                                            | Yes      | `${{ secrets.GITHUB_TOKEN }}`                       |
-| `pull_number`          | The number of the pull request being reviewed                                              | Yes      | `${{ github.event.pull_request.number }}`           |
-| `repo_name`            | The full name (owner/repo) of the repository                                               | Yes      | `${{ github.repository }}`                          |
-| `custom_guidelines`    | Custom guidelines to include in PR reviews                                                 | No       | See [Custom Guidelines](#custom-guidelines) section |
-| `model`                | Optional model name to use; passed directly to augment agent                               | No       | e.g. `sonnet4`, from `auggie --list-models`         |
-| `rules`                | JSON array of rule file paths forwarded to augment agent as repeated `--rules` flags       | No       | `'[".augment/rules.md"]'`                           |
-| `mcp_configs`          | JSON array of MCP config file paths forwarded as repeated `--mcp-config` flags             | No       | `'[".augment/mcp.json"]'`                           |
-| `fetch_depth`          | Number of commits to fetch. Use `0` for full history (default), `1` for shallow clone, or any positive integer for specific depth | No       | `1` (shallow), `50` (last 50 commits), `0` (full) |
+| Input                  | Description                                                                                                                       | Required | Example                                             |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------------------------------------------- |
+| `augment_session_auth` | Augment session authentication JSON containing accessToken and tenantURL (store as secret)                                        | Yes      | `${{ secrets.AUGMENT_SESSION_AUTH }}`               |
+| `github_token`         | GitHub token with `repo` scopes                                                                                                   | Yes      | `${{ secrets.GITHUB_TOKEN }}`                       |
+| `pull_number`          | The number of the pull request being reviewed                                                                                     | Yes      | `${{ github.event.pull_request.number }}`           |
+| `repo_name`            | The full name (owner/repo) of the repository                                                                                      | Yes      | `${{ github.repository }}`                          |
+| `custom_guidelines`    | Custom guidelines to include in PR reviews                                                                                        | No       | See [Custom Guidelines](#custom-guidelines) section |
+| `model`                | Optional model name to use; passed directly to augment agent                                                                      | No       | e.g. `sonnet4`, from `auggie --list-models`         |
+| `rules`                | JSON array of rule file paths forwarded to augment agent as repeated `--rules` flags                                              | No       | `'[".augment/rules.md"]'`                           |
+| `mcp_configs`          | JSON array of MCP config file paths forwarded as repeated `--mcp-config` flags                                                    | No       | `'[".augment/mcp.json"]'`                           |
+| `fetch_depth`          | Number of commits to fetch. Use `0` for full history (default), `1` for shallow clone, or any positive integer for specific depth | No       | `1` (shallow), `50` (last 50 commits), `0` (full)   |
 
 ## How It Works
 
