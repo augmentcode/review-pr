@@ -30,6 +30,10 @@ inputs:
   mcp_configs:
     description: "Optional JSON array of MCP config file paths to forward as --mcp-config flags to augmentcode/augment-agent."
     required: false
+  fetch_depth:
+    description: "Number of commits to fetch. Use '0' for full history (default), '1' for shallow clone (latest commit only), or any positive integer for a specific depth."
+    required: false
+    default: "0"
 
 runs:
   using: "composite"
@@ -39,7 +43,7 @@ runs:
       with:
         token: ${{ inputs.github_token }}
         ref: refs/pull/${{ inputs.pull_number }}/head
-        fetch-depth: 0
+        fetch-depth: ${{ inputs.fetch_depth }}
 
     - name: Prepare Custom Context
       id: custom_context
