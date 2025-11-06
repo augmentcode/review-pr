@@ -52,11 +52,13 @@ runs:
       shell: bash
       run: |
         if [ -n "$CUSTOM_GUIDELINES" ]; then
-          echo 'context<<EOF' >> $GITHUB_OUTPUT
-          echo "$(jq -n --arg guidelines "$CUSTOM_GUIDELINES" --arg repo "${{ inputs.repo_name }}" --arg pull_number "${{ inputs.pull_number }}" '{custom_guidelines: $guidelines, repo_name: $repo, pull_number: $pull_number}')" >> $GITHUB_OUTPUT
-          echo 'EOF' >> $GITHUB_OUTPUT
+          echo 'context<<EOF' >> "$GITHUB_OUTPUT"
+          jq -n --arg guidelines "$CUSTOM_GUIDELINES" --arg repo "${{ inputs.repo_name }}" --arg pull_number "${{ inputs.pull_number }}" '{custom_guidelines: $guidelines, repo_name: $repo, pull_number: $pull_number}' >> "$GITHUB_OUTPUT"
+          echo 'EOF' >> "$GITHUB_OUTPUT"
         else
-          echo "context=$(jq -n --arg repo \"${{ inputs.repo_name }}\" --arg pull_number \"${{ inputs.pull_number }}\" '{repo_name: $repo, pull_number: $pull_number}')" >> $GITHUB_OUTPUT
+          echo 'context<<EOF' >> "$GITHUB_OUTPUT"
+          jq -n --arg repo "${{ inputs.repo_name }}" --arg pull_number "${{ inputs.pull_number }}" '{repo_name: $repo, pull_number: $pull_number}' >> "$GITHUB_OUTPUT"
+          echo 'EOF' >> "$GITHUB_OUTPUT"
         fi
       env:
         CUSTOM_GUIDELINES: ${{ inputs.custom_guidelines }}

@@ -11,8 +11,9 @@
 - You are currently checked out on the head ref of this pull request.
 - All changed files for the PR are in the context as CHANGED_FILES
 - The full set of changes for the PR are in the context as DIFF
-- Always target the PR's repository for GitHub operations. Do not use the workflow repository.
-- Explicitly set owner/repo for every GitHub call to: {{ custom.repo_name }}; PR number: {{ custom.pull_number }}
+{% if custom.repo_name %}
+- Explicitly set owner/repo to '{{ custom.repo_name }}' for GitHub operations
+{% endif %}
 
 ### Comment Guidelines:
 - **HIGH CONFIDENCE ONLY**: Only suggest changes you are highly confident will improve the code
