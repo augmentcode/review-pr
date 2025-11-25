@@ -23,7 +23,7 @@
 
 ### Review Focus Areas:
 - **Potential Bugs**: Identify logic errors, edge cases, null pointer issues, race conditions
-- **Security Concerns**: Look for potential vulnerabilities, input validation, authentication issues only if the code in question security-sensitive.
+- **Security Concerns**: Look for potential vulnerabilities, input validation, authentication issues.
 - **Documentation**: Check if documentation is consistent with the code.
 
 ### Review Areas to Avoid:
@@ -31,6 +31,9 @@
 - **Readability**:
 - **Performance**:
 - **Testing**:
+- **Compiler/Build/Import errors**
+- **Linter/Formatter issues**:
+- **Nitpicks or subjective issues**:
 
 ### Review Philosophy:
 - Prioritize helping the author improve their code over finding every possible issue
@@ -43,8 +46,3 @@
 - Use collaborative language ("we could", "consider", "what do you think about")
 - Explain the reasoning behind suggestions to help the author learn
 - Consider existing reviews, do not be repetitive with other reviews
-
-### Scope Considerations:
-- Focus on the changes in this PR rather than suggesting broader refactoring
-- Consider the complexity and risk level when deciding which issues to raise
-- Balance thoroughness with practicality - not every suggestion needs to be addressed immediately
