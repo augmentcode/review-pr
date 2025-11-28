@@ -41,20 +41,24 @@ runs:
     - name: Checkout PR Head
       uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
       with:
+        repository: ${{ inputs.repo_name }}
         token: ${{ inputs.github_token }}
         ref: refs/pull/${{ inputs.pull_number }}/head
         fetch-depth: ${{ inputs.fetch_depth }}
+        path: pr
 
     - name: Prepare Custom Context
       id: custom_context
       shell: bash
       run: |
         if [ -n "$CUSTOM_GUIDELINES" ]; then
-          echo 'context<<EOF' >> $GITHUB_OUTPUT
-          echo "$(jq -n --arg guidelines "$CUSTOM_GUIDELINES" '{custom_guidelines: $guidelines}')" >> $GITHUB_OUTPUT
-          echo 'EOF' >> $GITHUB_OUTPUT
+          echo 'context<<EOF' >> "$GITHUB_OUTPUT"
+          jq -n --arg guidelines "$CUSTOM_GUIDELINES" --arg repo "${{ inputs.repo_name }}" --arg pull_number "${{ inputs.pull_number }}" '{custom_guidelines: $guidelines, repo_name: $repo, pull_number: $pull_number}' >> "$GITHUB_OUTPUT"
+          echo 'EOF' >> "$GITHUB_OUTPUT"
         else
-          echo "context={}" >> $GITHUB_OUTPUT
+          echo 'context<<EOF' >> "$GITHUB_OUTPUT"
+          jq -n --arg repo "${{ inputs.repo_name }}" --arg pull_number "${{ inputs.pull_number }}" '{repo_name: $repo, pull_number: $pull_number}' >> "$GITHUB_OUTPUT"
+          echo 'EOF' >> "$GITHUB_OUTPUT"
         fi
       env:
         CUSTOM_GUIDELINES: ${{ inputs.custom_guidelines }}

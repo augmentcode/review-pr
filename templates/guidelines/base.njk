@@ -11,6 +11,9 @@
 - You are currently checked out on the head ref of this pull request.
 - All changed files for the PR are in the context as CHANGED_FILES
 - The full set of changes for the PR are in the context as DIFF
+{% if custom.repo_name %}
+- Explicitly set owner/repo to '{{ custom.repo_name }}' for GitHub operations
+{% endif %}
 
 ### Comment Guidelines:
 - **HIGH CONFIDENCE ONLY**: Only suggest changes you are highly confident will improve the code. It is okay to post zero comments if you have no confident suggestions.
